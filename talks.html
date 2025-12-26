@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohitha Ravinder</title>
+  <title>Talks & Conferences - Rohitha Ravinder</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
@@ -14,17 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-   <!-- Font Awesome (icons) -->
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  crossorigin="anonymous"/>
-
-  <!-- Academicons (Google Scholar, etc.) -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
 </head>
 
 <body>
@@ -38,7 +29,7 @@
 
     <div style="display: flex; align-items: center;">
       <div class="nav-right">
-        <a href="#about">ABOUT</a>
+        <a href="index.html">ABOUT</a>
         <a href="#blogs">BLOGS</a>
         <a href="talks.html">TALKS</a>
         <a href="https://scholar.google.com/citations?hl=en&user=RvrqAUoAAAAJ">PUBLICATIONS</a>
@@ -70,40 +61,30 @@
   <!-- Main content -->
   <main class="container">
 
-    <!-- About / Intro -->
-    <section id="about" class="intro">
-      <div class="text">
-        <h1 class="name">Rohitha Ravinder</h1>
-
-        <p class="role">
-          PhD Student · Research Software Engineer 
-        </p>
-        <p class="expertise">
-          Biomedical NLP · Information Retrieval · Semantic Web
-        </p>
-
-        <p class="bio" style="text-align:justify;">
-          I am a PhD student and a Research Software Engineer working at the intersection of
-          biomedical natural language processing,  text-to-structure
-          transformation and information retrieval. My research focuses on developing AI pipelines,
-          particularly for text-to-structured transformations such as nanopublications. I leverage 
-          large language models to generate structured representations of claims from text, enhancing provenance and
-          explainability in the semantic web for the biomedical domain.
-        </p>
+    <!-- Talks & Conferences -->
+    <section class="talks">
+        <p class="talks-intro">
+        Throughout my research journey, I've had the opportunity to share my work and collaborate 
+        with researchers across the biomedical NLP and semantic web communities. Below is a collection 
+        of conferences, workshops, and hackathons where I've presented research, contributed to projects 
+        or participated in knowledge exchange.
+        </p><br>
+      <div class="table-wrapper">
+        <table id="talks-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Type</th>
+              <th>Event</th>
+              <th>Location / Date</th>
+              <th>Contribution / Notes</th>
+            </tr>
+          </thead>
+          <tbody id="talks-tbody">
+            <!-- Data will be loaded here via JavaScript -->
+          </tbody>
+        </table>
       </div>
-
-      <img src="profile.jpg" alt="Profile picture of Rohitha Ravinder" class="profile-pic">
-    </section>
-
-    <!-- Current Focus -->
-    <section class="focus">
-      <h2>Current Focus</h2>
-      <ul>
-        <li>Biomedical named entity recognition and large-scale evaluation</li>
-        <li>Dense and hybrid information retrieval using domain-specific embeddings</li>
-        <li>Text-to-structure pipelines for scientific and biomedical literature</li>
-        <li>Benchmarking and deployment of NLP systems in production settings</li>
-      </ul>
     </section>
 
   </main>
@@ -112,6 +93,9 @@
   <footer>
     <p>© 2025 Rohitha Ravinder</p>
   </footer>
+
+  <!-- Load talks data -->
+  <script src="talks.js"></script>
 
 </body>
 </html>
