@@ -58,44 +58,48 @@
     </div>
   </nav>
 
-  <!-- Main content -->
-  <main class="container">
+  <!-- Medium Posts Section -->
+  <section id="blogs" class="content">
+    <div class="text">
+        <h1 class="name">Latest Blog Posts</h1>
+    </div>
+    <div id="medium-posts"></div>
+     
+  </section>
 
-    <!-- Talks & Conferences -->
-    <section class="talks">
-        <p class="talks-intro">
-        Throughout my research journey, I've had the opportunity to share my work and collaborate 
-        with researchers across the biomedical NLP and semantic web communities. Below is a collection 
-        of conferences, workshops, and hackathons where I've presented research, contributed to projects 
-        or participated in knowledge exchange.
-        </p><br>
-      <div class="table-wrapper">
-        <table id="talks-table">
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Type</th>
-              <th>Event</th>
-              <th>Location / Date</th>
-              <th>Contribution / Notes</th>
-            </tr>
-          </thead>
-          <tbody id="talks-tbody">
-            <!-- Data will be loaded here via JavaScript -->
-          </tbody>
-        </table>
-      </div>
-    </section>
+  <!-- Medium RSS Script -->
+  <script>
+  function extractImage(html) {
+    const match = html?.match(/<img[^>]+src="([^">]+)"/);
+    return match ? match[1] : "images/fallback.png";
+  }
 
-  </main>
+  fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@rohitha0112")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("medium-posts");
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Rohitha Ravinder</p>
-  </footer>
+      data.items.slice(0, 3).forEach(post => {
+        const image =
+          extractImage(post.content) ||
+          extractImage(post.description);
 
-  <!-- Load talks data -->
-  <script src="talks.js"></script>
+        container.innerHTML += `
+          <a class="medium-card" href="${post.link}" target="_blank" rel="noopener">
+            <div class="medium-card-text">
+              <h3>${post.title}</h3>
+              <p>${post.description.replace(/<[^>]+>/g, '')}</p>
+              <span class="meta">Published on Medium</span>
+            </div>
+            <div class="medium-card-image">
+              <img src="${image}" alt="Medium article preview">
+            </div>
+          </a>
+        `;
+      });
+    });
+</script>
+
 
 </body>
 </html>
